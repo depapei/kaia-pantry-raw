@@ -30,7 +30,7 @@ export default function Hero() {
           className="text-6xl md:text-8xl lg:text-9xl font-serif leading-tight mb-8"
         >
           Kaia <br />
-          <span className="italic">Boulangerie</span>
+          <span className="italic">Pantry</span>
         </motion.h1>
 
         <motion.p
