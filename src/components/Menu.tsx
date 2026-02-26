@@ -114,7 +114,7 @@ export default function Menu() {
 
               <button
                 onClick={() => addToCart(item)}
-                className="w-full md:w-auto bg-[#FFC107] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#FFB300] transition-colors duration-300 self-start"
+                className="w-full md:w-auto bg-bakery-olive text-white px-8 py-3 rounded-xl font-bold hover:bg-stone-800 transition-colors duration-300 self-start"
               >
                 Add to Cart
               </button>
