@@ -15,7 +15,7 @@ export default function Navbar({ onCartClick, onHomeClick }: NavbarProps) {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   useEffect(() => {
@@ -28,34 +28,41 @@ export default function Navbar({ onCartClick, onHomeClick }: NavbarProps) {
 
   return (
     <>
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4 ${
-          isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent"
+          isScrolled
+            ? "bg-white/80 backdrop-blur-md shadow-sm py-3"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <button onClick={onHomeClick} className="text-2xl font-serif italic tracking-tight">Lumière</button>
-          
+          <button
+            onClick={onHomeClick}
+            className="text-2xl font-serif italic tracking-tight"
+          >
+            Kaia
+          </button>
+
           <div className="hidden md:flex gap-10 items-center">
             {["Menu", "About", "Visit"].map((item) => (
-              <a 
+              <a
                 key={item}
-                href={`#${item.toLowerCase()}`} 
+                href={`#${item.toLowerCase()}`}
                 className="text-xs uppercase tracking-widest font-medium hover:text-bakery-crust transition-colors"
               >
                 {item}
               </a>
             ))}
-            
-            <button 
+
+            <button
               onClick={onCartClick}
               className="relative p-2 text-stone-800 hover:text-bakery-olive transition-colors group"
             >
               <ShoppingBag size={24} strokeWidth={1.5} />
               {totalItems > 0 && (
-                <motion.span 
+                <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className="absolute -top-1 -right-1 bg-bakery-crust text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white"
@@ -69,9 +76,9 @@ export default function Navbar({ onCartClick, onHomeClick }: NavbarProps) {
               Order Online
             </button>
           </div>
-          
+
           <div className="flex items-center gap-4 md:hidden">
-            <button 
+            <button
               onClick={onCartClick}
               className="relative p-2 text-stone-800"
             >
@@ -83,14 +90,28 @@ export default function Navbar({ onCartClick, onHomeClick }: NavbarProps) {
               )}
             </button>
             <button className="text-bakery-olive">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
             </button>
           </div>
         </div>
       </motion.nav>
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-bakery-crust z-[60] origin-left" 
-        style={{ scaleX }} 
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-bakery-crust z-[60] origin-left"
+        style={{ scaleX }}
       />
     </>
   );
